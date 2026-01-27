@@ -1,0 +1,236 @@
+:root{
+  --dark:#0f1e2d;
+  --gold:#c6a45e;
+  --light:#f4f6f8;
+  --text:#2c2c2c;
+}
+
+/* RESET BÁSICO FINO */
+body{
+  font-family:'Inter', sans-serif;
+  color:var(--text);
+  line-height:1.7;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* HEADER */
+.header{
+  background:
+    linear-gradient(rgba(15,30,45,.85),rgba(15,30,45,.85)),
+    url('Imagen2.png') center/cover no-repeat;
+  color:white;
+  padding-bottom:120px;
+}
+
+/* NAVBAR */
+.navbar-brand{
+  font-family:'Playfair Display', serif;
+  font-size:1.6rem;
+  color:white;
+  line-height:1.2;
+}
+
+.navbar-brand:hover{
+  color:white;
+}
+
+.brand-sub{
+  font-size:.75rem;
+  letter-spacing:1px;
+  color:var(--gold);
+}
+
+.nav-link{
+  color:white;
+  font-weight:300;
+  position:relative;
+}
+
+.nav-link::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.3s;
+}
+
+.nav-link:hover{
+  color:var(--gold);
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
+/* BOTONES */
+.btn-gold{
+  background:var(--gold);
+  color:#000;
+  border-radius:0;
+  padding:8px 22px;
+  font-weight:500;
+  transition:.3s;
+}
+
+.btn-gold:hover{
+  background:#b9964f;
+  color:#000;
+}
+
+.btn-gold-lg{
+  background:var(--gold);
+  color:#000;
+  padding:14px 36px;
+  font-weight:600;
+  border-radius:0;
+  transition:.3s;
+}
+
+.btn-gold-lg:hover{
+  background:#b9964f;
+}
+
+/* HERO */
+.hero{
+  margin-top:110px;
+  max-width:620px;
+}
+
+.hero h1{
+  font-family:'Playfair Display', serif;
+  font-size:3.1rem;
+  margin-bottom:22px;
+}
+
+.hero p{
+  font-size:1.05rem;
+  opacity:.95;
+}
+
+/* SECCIONES */
+.section{
+  padding:100px 0;
+}
+
+.section-light{
+  background:white;
+}
+
+.section-dark{
+  background:var(--dark);
+  color:white;
+}
+
+/* CAJA LEGAL */
+.legal-box{
+  background:var(--light);
+  padding:45px;
+  border-left:5px solid var(--gold);
+}
+
+.legal-box ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.legal-box li{
+  margin-bottom:12px;
+  font-weight:500;
+}
+
+/* SERVICIOS */
+.service-card{
+  background:rgba(255,255,255,.06);
+  padding:45px;
+  border-left:4px solid var(--gold);
+  transition:.35s ease;
+  height:100%;
+}
+
+.service-card h3{
+  font-family:'Playfair Display', serif;
+  margin-bottom:12px;
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  background:rgba(255,255,255,.1);
+}
+
+/* FORMULARIO */
+.legal-form input,
+.legal-form textarea{
+  border-radius:0;
+  border:1px solid #ccc;
+  padding:14px;
+  font-size:.95rem;
+}
+
+.legal-form input:focus,
+.legal-form textarea:focus{
+  border-color:var(--gold);
+  box-shadow:none;
+}
+
+/* CTA */
+.cta{
+  background:var(--gold);
+  padding:90px 0;
+  color:#000;
+}
+
+.cta h2{
+  font-family:'Playfair Display', serif;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+.footer{
+  background:#0a141f;
+  color:#aaa;
+  padding:30px 0;
+  text-align:center;
+  font-size:.9rem;
+}
+
+/* ICONOS */
+.bi-whatsapp{
+  margin-right:6px;
+  vertical-align:-2px;
+}
+
+/* ANIMACIONES FINAS */
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards;
+}
+
+.delay{
+  animation-delay:.4s;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  .hero h1{
+    font-size:2.4rem;
+  }
+
+  .section{
+    padding:70px 0;
+  }
+}
