@@ -5,7 +5,17 @@
   --text:#2c2c2c;
 }
 
-/* RESET BÁSICO FINO */
+/* =========================
+   FIX OVERFLOW MOBILE
+========================= */
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+/* =========================
+   RESET BÁSICO
+========================= */
 body{
   font-family:'Inter', sans-serif;
   color:var(--text);
@@ -16,18 +26,40 @@ a{
   text-decoration:none;
 }
 
-/* HEADER */
+/* =========================
+   FUENTES (JERARQUÍA)
+========================= */
+h1, h2, h3, h4, h5,
+.navbar-brand,
+.footer-title{
+  font-family:'Playfair Display', serif;
+}
+
+p,
+.nav-link,
+.legal-box li,
+.service-card p,
+.legal-form input,
+.legal-form select,
+.legal-form textarea{
+  font-family:'Inter', sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
 .header{
   background:
     linear-gradient(rgba(15,30,45,.85),rgba(15,30,45,.85)),
-    url('Imagen2.png') center/cover no-repeat;
+    url('Imagen.webp') center/cover no-repeat;
   color:white;
   padding-bottom:120px;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 .navbar-brand{
-  font-family:'Playfair Display', serif;
   font-size:1.6rem;
   color:white;
   line-height:1.2;
@@ -35,12 +67,6 @@ a{
 
 .navbar-brand:hover{
   color:white;
-}
-
-.brand-sub{
-  font-size:.75rem;
-  letter-spacing:1px;
-  color:var(--gold);
 }
 
 .nav-link{
@@ -68,42 +94,42 @@ a{
   width:100%;
 }
 
-/* BOTONES */
-.btn-gold{
-  background:var(--gold);
-  color:#000;
-  border-radius:0;
-  padding:8px 22px;
-  font-weight:500;
-  transition:.3s;
-}
-
-.btn-gold:hover{
-  background:#b9964f;
-  color:#000;
-}
-
+/* =========================
+   BOTONES
+========================= */
+.btn-gold,
 .btn-gold-lg{
   background:var(--gold);
   color:#000;
-  padding:14px 36px;
-  font-weight:600;
   border-radius:0;
   transition:.3s;
 }
 
-.btn-gold-lg:hover{
-  background:#b9964f;
+.btn-gold{
+  padding:8px 22px;
+  font-weight:500;
 }
 
-/* HERO */
+.btn-gold-lg{
+  padding:14px 36px;
+  font-weight:600;
+}
+
+.btn-gold:hover,
+.btn-gold-lg:hover{
+  background:#25d366;
+  color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero{
   margin-top:110px;
   max-width:620px;
 }
 
 .hero h1{
-  font-family:'Playfair Display', serif;
   font-size:3.1rem;
   margin-bottom:22px;
 }
@@ -113,7 +139,9 @@ a{
   opacity:.95;
 }
 
-/* SECCIONES */
+/* =========================
+   SECCIONES
+========================= */
 .section{
   padding:100px 0;
 }
@@ -127,7 +155,9 @@ a{
   color:white;
 }
 
-/* CAJA LEGAL */
+/* =========================
+   CAJA LEGAL
+========================= */
 .legal-box{
   background:var(--light);
   padding:45px;
@@ -145,7 +175,9 @@ a{
   font-weight:500;
 }
 
-/* SERVICIOS */
+/* =========================
+   SERVICIOS
+========================= */
 .service-card{
   background:rgba(255,255,255,.06);
   padding:45px;
@@ -156,16 +188,19 @@ a{
 
 .service-card h3{
   font-family:'Playfair Display', serif;
-  margin-bottom:12px;
 }
 
 .service-card:hover{
   transform:translateY(-10px);
-  background:rgba(255,255,255,.1);
+  background:#fff;
+  color:#0f1e2d;
 }
 
-/* FORMULARIO */
+/* =========================
+   FORMULARIO
+========================= */
 .legal-form input,
+.legal-form select,
 .legal-form textarea{
   border-radius:0;
   border:1px solid #ccc;
@@ -174,63 +209,204 @@ a{
 }
 
 .legal-form input:focus,
+.legal-form select:focus,
 .legal-form textarea:focus{
   border-color:var(--gold);
   box-shadow:none;
 }
 
-/* CTA */
-.cta{
-  background:var(--gold);
-  padding:90px 0;
-  color:#000;
+/* =========================
+   WHATSAPP TEXTO
+========================= */
+.whatsapp-link{
+  color:inherit;
+  transition:color .3s ease;
 }
 
-.cta h2{
-  font-family:'Playfair Display', serif;
-  margin-bottom:10px;
+.whatsapp-link:hover{
+  color:#25d366;
 }
 
-/* FOOTER */
-.footer{
-  background:#0a141f;
-  color:#aaa;
-  padding:30px 0;
-  text-align:center;
-  font-size:.9rem;
-}
-
-/* ICONOS */
 .bi-whatsapp{
   margin-right:6px;
   vertical-align:-2px;
 }
 
-/* ANIMACIONES FINAS */
+/* =========================
+   FOOTER
+========================= */
+.footer{
+  background:#0a141f;
+  color:#aaa;
+  padding:60px 20px 30px;
+  font-size:.9rem;
+}
+
+.footer a{
+  color:#aaa;
+  transition:color .3s ease;
+}
+
+.footer-logo{
+  max-height:120px;
+}
+
+.footer-title{
+  color:#fff;
+  font-size:.95rem;
+  margin-bottom:12px;
+}
+
+.footer-menu{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-menu li{
+  margin-bottom:8px;
+}
+
+.footer-menu a:hover{
+  color:var(--gold);
+}
+
+.footer-dev{
+  color:var(--gold);
+}
+
+.footer-dev:hover{
+  color:#0d6efd;
+}
+
+.footer-info-title{
+  font-family:'Playfair Display', serif;
+  font-size:1.05rem;
+  color:#fff;
+  margin-bottom:6px;
+}
+
+.footer-info-text{
+  margin:0;
+  color:#aaa;
+  font-size:.9rem;
+  line-height:1.6;
+}
+
+/* =========================
+   ANIMACIONES ON SCROLL
+========================= */
 .fade-in{
   opacity:0;
   transform:translateY(30px);
-  animation:fadeUp 1s ease forwards;
+  transition:opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .delay{
-  animation-delay:.4s;
+  transition-delay:.4s;
 }
 
-@keyframes fadeUp{
+/* =========================
+   HERO ANIMATION
+========================= */
+.hero-text h1{
+  animation:fadeHero 1.2s ease forwards;
+}
+
+.hero-text p{
+  animation:fadeHero 1.2s ease .2s forwards;
+  opacity:0;
+}
+
+.hero-text .btn{
+  animation:fadeHero 1.2s ease .4s forwards;
+  opacity:0;
+}
+
+@keyframes fadeHero{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
   to{
     opacity:1;
     transform:translateY(0);
   }
 }
 
-/* RESPONSIVO */
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+.whatsapp-float{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  width:62px;
+  height:62px;
+  background:#25d366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  z-index:9999;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  animation:pulseWhats 2.5s infinite;
+  transition:.3s ease;
+  max-width:100vw;
+  box-sizing:border-box;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+  background:#1ebe5d;
+  color:#fff;
+}
+
+@keyframes pulseWhats{
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.6); }
+  70%{ box-shadow:0 0 0 15px rgba(37,211,102,0); }
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
 @media(max-width:768px){
+
+  .hero{
+    max-width:100%;
+    padding-left:15px;
+    padding-right:15px;
+  }
+
   .hero h1{
     font-size:2.4rem;
   }
 
   .section{
     padding:70px 0;
+  }
+
+  .footer{
+    text-align:center;
+  }
+
+  .footer-logo{
+    margin-bottom:15px;
+  }
+
+  .whatsapp-float{
+    width:56px;
+    height:56px;
+    font-size:28px;
+    bottom:20px;
+    right:20px;
   }
 }
