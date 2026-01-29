@@ -1,130 +1,126 @@
-// seo.js - SEO profesional completo para licjaimecoria.com.mx
-document.addEventListener("DOMContentLoaded", function() {
-  // Meta description
-  const metaDescription = document.createElement('meta');
-  metaDescription.name = "description";
-  metaDescription.content = "Coria & Asociados, abogados especialistas en derecho familiar con más de 25 años de experiencia en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana, Guerrero. Divorcios, pensión alimenticia, custodia y asesoría legal profesional.";
-  document.head.appendChild(metaDescription);
+// seo.js – SEO local y por servicio para Coria & Asociados
+document.addEventListener("DOMContentLoaded", function () {
 
-  // Meta keywords
-  const metaKeywords = document.createElement('meta');
-  metaKeywords.name = "keywords";
-  metaKeywords.content = "abogado familiar Atoyac de Álvarez, abogado familiar San Jerónimo de Juárez, abogado familiar Tecpan de Galeana, divorcios Guerrero, custodia legal Guerrero, pensión alimenticia Guerrero";
-  document.head.appendChild(metaKeywords);
+  const page = window.location.pathname.split("/").pop();
 
-  // Meta author
-  const metaAuthor = document.createElement('meta');
-  metaAuthor.name = "author";
-  metaAuthor.content = "Coria & Asociados";
-  document.head.appendChild(metaAuthor);
+  const pages = {
+    "divorcios.html": {
+      title: "Divorcios | Coria & Asociados",
+      description: "Abogados especialistas en divorcios en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana, Guerrero. Divorcio incausado, voluntario y contencioso.",
+      keywords: "abogado de divorcios Atoyac de Álvarez, divorcio Guerrero, divorcio incausado, abogado familiar Tecpan",
+      service: "Divorcios"
+    },
+    "custodias.html": {
+      title: "Custodia y Patria Potestad | Coria & Asociados",
+      description: "Asesoría legal en custodia, patria potestad y régimen de visitas en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana.",
+      keywords: "custodia legal Guerrero, patria potestad Atoyac, abogado familiar Tecpan",
+      service: "Custodia y patria potestad"
+    },
+    "pensiones.html": {
+      title: "Pensión Alimenticia | Coria & Asociados",
+      description: "Abogados expertos en pensión alimenticia en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana. Solicitud, aumento y ejecución.",
+      keywords: "pensión alimenticia Guerrero, abogado familiar Atoyac, pensión hijos",
+      service: "Pensión alimenticia"
+    },
+    "conflictosfamiliares.html": {
+      title: "Conflictos Familiares | Coria & Asociados",
+      description: "Defensa legal en conflictos familiares, violencia familiar y alienación parental en Guerrero.",
+      keywords: "conflictos familiares Guerrero, violencia familiar Atoyac, abogado familiar",
+      service: "Conflictos familiares"
+    },
+    "medidas.html": {
+      title: "Medidas de Protección | Coria & Asociados",
+      description: "Solicitud urgente de medidas de protección para menores y víctimas de violencia familiar en Guerrero.",
+      keywords: "medidas de protección Guerrero, violencia familiar Tecpan, abogado familiar",
+      service: "Medidas de protección"
+    },
+    "convenios.html": {
+      title: "Convenios y Asesoría Legal | Coria & Asociados",
+      description: "Elaboración de convenios familiares, mediación y asesoría legal preventiva en Guerrero.",
+      keywords: "convenios familiares Guerrero, asesoría legal Atoyac, mediación familiar",
+      service: "Convenios y asesoría legal"
+    }
+  };
+
+  const current = pages[page] || {
+    title: "Coria & Asociados | Abogados en Derecho Familiar en Guerrero",
+    description: "Despacho de abogados especialistas en derecho familiar en Guerrero.",
+    keywords: "abogado familiar Guerrero",
+    service: "Servicios legales"
+  };
+
+  document.title = current.title;
+
+  const metas = [
+    { name: "description", content: current.description },
+    { name: "keywords", content: current.keywords },
+    { name: "author", content: "Coria & Asociados" }
+  ];
+
+  metas.forEach(data => {
+    const meta = document.createElement("meta");
+    meta.name = data.name;
+    meta.content = data.content;
+    document.head.appendChild(meta);
+  });
 
   // Open Graph
-  const ogTags = [
-    {property: "og:title", content: "Coria & Asociados | Abogados en Derecho Familiar en Guerrero"},
-    {property: "og:description", content: "Servicios legales profesionales en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana. Más de 25 años de experiencia en derecho familiar."},
-    {property: "og:image", content: "https://licjaimecoria.com.mx/Logo.webp"},
-    {property: "og:url", content: "https://licjaimecoria.com.mx"},
-    {property: "og:type", content: "website"}
+  const og = [
+    ["og:title", current.title],
+    ["og:description", current.description],
+    ["og:image", "https://licjaimecoria.com.mx/Logo.webp"],
+    ["og:url", window.location.href],
+    ["og:type", "website"]
   ];
-  ogTags.forEach(tag => {
-    const meta = document.createElement('meta');
-    meta.setAttribute('property', tag.property);
-    meta.content = tag.content;
+
+  og.forEach(([property, content]) => {
+    const meta = document.createElement("meta");
+    meta.setAttribute("property", property);
+    meta.content = content;
     document.head.appendChild(meta);
   });
 
-  // Twitter Card
-  const twitterTags = [
-    {name: "twitter:card", content: "summary_large_image"},
-    {name: "twitter:title", content: "Coria & Asociados | Abogados en Derecho Familiar en Guerrero"},
-    {name: "twitter:description", content: "Servicios legales en Atoyac de Álvarez, San Jerónimo de Juárez y Tecpan de Galeana. Divorcios, custodia y pensión alimenticia."},
-    {name: "twitter:image", content: "https://licjaimecoria.com.mx/Logo.webp"}
+  // Twitter
+  const twitter = [
+    ["twitter:card", "summary_large_image"],
+    ["twitter:title", current.title],
+    ["twitter:description", current.description],
+    ["twitter:image", "https://licjaimecoria.com.mx/Logo.webp"]
   ];
-  twitterTags.forEach(tag => {
-    const meta = document.createElement('meta');
-    meta.name = tag.name;
-    meta.content = tag.content;
+
+  twitter.forEach(([name, content]) => {
+    const meta = document.createElement("meta");
+    meta.name = name;
+    meta.content = content;
     document.head.appendChild(meta);
   });
 
-  // JSON-LD profesional completo
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.text = JSON.stringify({
+  // JSON-LD Local SEO
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LegalService",
-        "@id": "https://licjaimecoria.com.mx#legalservice",
-        "name": "Coria & Asociados",
-        "legalName": "Coria & Asociados",
-        "founder": "Lic. Jaime Coria",
-        "image": "https://licjaimecoria.com.mx/Logo.webp",
-        "url": "https://licjaimecoria.com.mx",
-        "telephone": "+52 742 100 6758",
-        "address": [
-          {"@type": "PostalAddress","addressLocality": "Atoyac de Álvarez","addressRegion": "Guerrero","addressCountry": "MX"},
-          {"@type": "PostalAddress","addressLocality": "San Jerónimo de Juárez","addressRegion": "Guerrero","addressCountry": "MX"},
-          {"@type": "PostalAddress","addressLocality": "Tecpan de Galeana","addressRegion": "Guerrero","addressCountry": "MX"}
-        ],
-        "openingHours": ["Mo-Fr 09:00-17:00"],
-        "priceRange": "$$",
-        "areaServed": [
-          {"@type":"Place","name":"Atoyac de Álvarez, Guerrero, México"},
-          {"@type":"Place","name":"San Jerónimo de Juárez, Guerrero, México"},
-          {"@type":"Place","name":"Tecpan de Galeana, Guerrero, México"}
-        ],
-        "sameAs": ["https://wa.me/527421006758"]
-      },
-      {
-        "@type": "Service",
-        "name": "Divorcios",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "Service",
-        "name": "Custodia y patria potestad",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "Service",
-        "name": "Pensión alimenticia",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "Service",
-        "name": "Conflictos familiares",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "Service",
-        "name": "Medidas de protección",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "Service",
-        "name": "Convenios familiares",
-        "provider": {"@id": "https://licjaimecoria.com.mx#legalservice"}
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://licjaimecoria.com.mx#breadcrumbs",
-        "itemListElement": [
-          {"@type": "ListItem","position":1,"name":"Inicio","item":"https://licjaimecoria.com.mx/"},
-          {"@type": "ListItem","position":2,"name":"Servicios","item":"https://licjaimecoria.com.mx/#servicios"},
-          {"@type": "ListItem","position":3,"name":"Contacto","item":"https://licjaimecoria.com.mx/#contacto"}
-        ]
-      },
-      {
-        "@type": "ContactPoint",
-        "@id": "https://licjaimecoria.com.mx#contact",
-        "telephone": "+52 742 100 6758",
-        "contactType": "customer service",
-        "areaServed": "MX",
-        "availableLanguage": "es",
-        "url": "https://wa.me/527421006758"
-      }
+    "@type": "LegalService",
+    "name": "Coria & Asociados",
+    "image": "https://licjaimecoria.com.mx/Logo.webp",
+    "url": window.location.origin,
+    "telephone": "+52 742 100 6758",
+    "priceRange": "$$",
+    "areaServed": [
+      "Atoyac de Álvarez, Guerrero, México",
+      "San Jerónimo de Juárez, Guerrero, México",
+      "Tecpan de Galeana, Guerrero, México"
+    ],
+    "serviceOffered": {
+      "@type": "Service",
+      "name": current.service
+    },
+    "sameAs": [
+      "https://wa.me/527421006758"
     ]
-  });
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(jsonLd);
   document.head.appendChild(script);
+
 });
