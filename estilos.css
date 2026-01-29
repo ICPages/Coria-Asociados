@@ -50,10 +50,10 @@ p,
 ========================= */
 .header{
   background:
-    linear-gradient(rgba(15,30,45,.85),rgba(15,30,45,.85)),
-    url('Imagen.webp') center/cover no-repeat;
-  color:white;
-  padding-bottom:120px;
+    linear-gradient(rgba(15,30,45,.85), rgba(15,30,45,.85)),
+    var(--header-img) center/cover no-repeat;
+  color: white;
+  padding-bottom: 120px;
 }
 
 /* =========================
@@ -409,4 +409,26 @@ p,
     bottom:20px;
     right:20px;
   }
+}
+
+/* =========================
+   FAQ / ACCORDION PERSONALIZADO
+========================= */
+.accordion-button{
+  font-family:'Playfair Display', serif;
+  font-size:1.05rem;
+  transition:color .3s ease, background-color .3s ease;
+}
+
+.accordion-button:hover{
+  background:rgba(198,164,94,.08);
+}
+
+.accordion-button:not(.collapsed){
+  background:var(--gold);
+  box-shadow:none;
+}
+
+.accordion-button:focus{
+  box-shadow:none;
 }
